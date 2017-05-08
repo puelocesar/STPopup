@@ -20,9 +20,9 @@
     UIView *containerView = context.containerView;
     if (context.action == STPopupControllerTransitioningActionPresent) {
         containerView.alpha = 0;
-        containerView.transform = CGAffineTransformMakeScale(1.05, 1.05);
+        containerView.transform = CGAffineTransformMakeScale(0.5, 0.5);
         
-        [UIView animateWithDuration:[self popupControllerTransitionDuration:context] delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [UIView animateWithDuration:[self popupControllerTransitionDuration:context] delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:0.9 options:UIViewAnimationOptionCurveEaseOut animations:^{
             containerView.alpha = 1;
             containerView.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
